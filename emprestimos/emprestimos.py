@@ -1,1 +1,1 @@
-input('kjujlomflmlmçy)
+def emprestimos
