@@ -59,7 +59,7 @@ def add_entrada():
 	E = input("Digite o ano do livro: ")
 	ano = add_ano(E)
 
-	entrada_livro = ",".join([isbn,titulo, auth, editora, ano])
+	entrada_livro = ", ".join([auth, titulo, editora, ano, isbn])
 
 	print(entrada_livro)
 
