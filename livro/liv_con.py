@@ -76,8 +76,31 @@ def newauth():
     return auth
 
 
-def add_entrada():
-    A = input("Digite o ISBN do livro: ")
+def con_entrada():
+    A = input("Listar livros por: " + "(1)titulo" + "(2)autor" + "(3)ano" +
+              "(4)editora" + "(5)listar todos")
+
+    if A.isnumeric() is false or len(A) != 1:
+        print("Digite um valor valido.")
+        con_entrada()
+    elif A == 1:
+        con_titulo()
+
+    elif A == 2:
+        con_autor()
+
+    elif A == 3:
+        con_ano()
+
+    elif A == 4:
+        con_editora()
+    elif A == 5:
+        con_todos()
+
+    else:
+        print("Digite um valor valido.")
+        con_entrada
+
     isbn = add_isbn(A)
 
     B = input("Digite o titulo do livro: ")

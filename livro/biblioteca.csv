@@ -1,4 +1,6 @@
-cod, isbn, titulo, autores, ano, editora
-'1', '9788502119222', 'Gestão organizacional: descobrindo uma chave de sucesso para os negécios', 'SILVA', ' Edison Aurélio da; OLIVEIRA', ' Jayr Figueiredo de', '2006', 'Saraiva'
-'2', '9788580551112', 'Administração de Sistemas de Informação', 'O\'BRIEN', ' James A.; MARAKAS', ' George M.', '2023', 'Grupo A'
-'3', '9788597016659', 'Matemática Básica para Cursos Superiores', ' 2ª edição', 'SILVA', ' Sebastião Medeiros da; SILVA', ' Elio Medeiros da; SILVA', ' Ermes Medeiros da', '2018', 'Grupo GEN'
+cod, isbn, titulo, autores, ano, editora, categoria, disponivel
+'1', '9788502119222', 'Gestão organizacional: descobrindo uma chave de sucesso para os negécios', 'SILVA', ' Edison Aurélio da; OLIVEIRA', ' Jayr Figueiredo de', '2006', 'Saraiva', 'Administracao', '1'
+'2', '9788580551112', 'Administração de Sistemas de Informação', 'O\'BRIEN', ' James A.; MARAKAS', ' George M.', '2023', 'Grupo A', 'Informatica', '1'
+'3', '9788597016659', 'Matemática Básica para Cursos Superiores', ' 2ª edição', 'SILVA', ' Sebastião Medeiros da; SILVA', ' Elio Medeiros da; SILVA', ' Ermes Medeiros da', '2018', 'Grupo GEN', 'Matematica', '1'
+
+'4', '8473627482736', 'Joao MIguel', 'Joao Miguel Sousa', '2010', 'UFPI'

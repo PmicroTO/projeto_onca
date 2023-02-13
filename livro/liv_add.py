@@ -99,7 +99,6 @@ def add_entrada():
     for col in bib_col:
         last_cod = col[0].strip("'")
     cod = 1 + int(last_cod)
-
     bib.close
 
     entrada_livro = ",".join([str(cod), isbn, titulo, autores, ano,
@@ -111,6 +110,8 @@ def add_entrada():
     bib = open('biblioteca.csv', 'a')
     bib.write("\n" + entrada_livro)
     bib.close()
+
+    print(titulo + autores + ano)
 
 
 add_entrada()
