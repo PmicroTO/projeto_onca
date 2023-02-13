@@ -1,3 +1,6 @@
+import csv
+
+
 def add_isbn(isbn):
     isbn = isbn.strip()
     isbn = isbn.replace("-", "")
@@ -65,8 +68,8 @@ def newauth():
         "Digite 'S' para Adicionar um novo autor, 'C' pra continuar.").lower()
     auth = ""
     while C2 == "s" and C2 != "c":
-        C = input("Digite o proximo autor(C para continuar): ").lower
-        if C == "c":
+        C = input("Digite o proximo autor(C para continuar): ")
+        if C.lower() == "c":
             break
         auth += "; " + add_autor(C.strip())
         print(auth)
@@ -91,8 +94,23 @@ def add_entrada():
     E = input("Digite o ano do livro: ")
     ano = add_ano(E)
 
-    entrada_livro = ",".join([autores, titulo, editora, ano, isbn])
+    bib = open('biblioteca.csv', 'r')
+    bib_col = csv.reader(bib)
+    for col in bib_col:
+        last_cod = col[0].strip("'")
+    cod = 1 + int(last_cod)
+
+    bib.close
+
+    entrada_livro = ",".join([str(cod), isbn, titulo, autores, ano,
+                              editora]).split(',')
+    entrada_livro = str(entrada_livro).strip("[]")
+    entrada_livro = entrada_livro.replace("\"", "")
     print(entrada_livro)
+
+    bib = open('biblioteca.csv', 'a')
+    bib.write("\n" + entrada_livro)
+    bib.close()
 
 
 add_entrada()
