@@ -31,11 +31,15 @@ CREATE TABLE usuarios (
 	rua TEXT(255) NOT NULL,
 	casa TEXT(10) NOT NULL,
 	livro_1 INTEGER,
+	livro_1_data TEXT(10),
 	livro_2 INTEGER,
+	livro_2_data TEXT(10),
 	livro_3 INTEGER,
+	livro_3_data TEXT(10),
 	FOREIGN KEY (livro_1) REFERENCES livros(cod_liv),
 	FOREIGN KEY (livro_2) REFERENCES livros(cod_liv),
 	FOREIGN KEY (livro_3) REFERENCES livros(cod_liv)
 );
+
 
 
