@@ -1,0 +1,39 @@
+usar o count pra validar endereco de emais, numero de '@'
+https://regexr.com/3e48o
+
+usar format pra adicionar nas listas algo mais complexo como o nome de inumeros autores ou o endereco
+for character in string - Iterates over each character in the string
+
+string.split(delimiter) 
+returns a list of substrings that were separated by whitespace or a delimiter
+usar para retornar o primeiro nome do usuario numa mensagem de boas vindas
+
+Formatted string literals (Optional)
+>>> item = "Purple Cup"
+
+>>> amount = 5
+
+>>> price = amount * 3.25
+
+>>> print(f'Item: {item} - Amount: {amount} - Price: {price:.2f}')
+
+Item: Purple Cup - Amount: 5 - Price: 16.25
+
+
+def nametag(first_name, last_name):
+    return("{} {:.1s}.".format(first_name, last_name))
+
+
+print(nametag("Jane", "Smith")) 
+# Should display "Jane S." 
+print(nametag("Francesco", "Rinaldi")) 
+# Should display "Francesco R." 
+print(nametag("Jean-Luc", "Grand-Pierre")) 
+# Should display "Jean-Luc G." 
+
+fazer backup dos arquivos antes de salvar
+
+testar.json
+
+usar o modulo csv apenas para quando precisar pegar uma coluna, mas fazer o resto em lista
+

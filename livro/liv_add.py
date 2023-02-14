@@ -77,22 +77,24 @@ def newauth():
 
 
 def add_entrada():
-    A = input("Digite o ISBN do livro: ")
-    isbn = add_isbn(A)
+    #A = input("Digite o ISBN do livro: ")
+    #isbn = add_isbn(A)
 
-    B = input("Digite o titulo do livro: ")
-    titulo = add_titulo(B)
+    #B = input("Digite o titulo do livro: ")
+    #titulo = add_titulo(B)
 
-    C = input("Digite o autor: ")
-    auth_p = add_autor(C.strip())
-    auth_s = newauth()
-    autores = "\"" + auth_p + auth_s + "\""
+    #C = input("Digite o autor: ")
+    #auth_p = add_autor(C.strip())
+    #auth_s = newauth()
+    #autores = "\"" + auth_p + auth_s + "\""
 
-    D = input("Digite a Editora: ")
-    editora = add_editora(D)
+    #D = input("Digite a Editora: ")
+    #editora = add_editora(D)
 
-    E = input("Digite o ano do livro: ")
-    ano = add_ano(E)
+    #E = input("Digite o ano do livro: ")
+    #ano = add_ano(E)
+
+    isbn, titulo, autores, ano, editora = '1234567890123', 'Meu Titulo Teste', '"Lucio Araujo; Lucio Junior"', '2000', 'UFPI'
 
     bib = open('biblioteca.csv', 'r')
     bib_col = csv.reader(bib)
