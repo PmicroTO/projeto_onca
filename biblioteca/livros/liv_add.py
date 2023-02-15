@@ -1,4 +1,5 @@
-import csv
+import datetime
+import biblioteca.sql_bib.bib_cruder as crud
 
 
 def add_isbn(isbn):
@@ -34,16 +35,6 @@ def add_autor(auth):
         add_autor(auth)
 
 
-def new_autor(y_n):
-    if y_n.lower() != "y" or "n":
-        y_n = input("Digite um valor valido [Y/N]")
-        new_autor(y_n)
-    else:
-        if y_n.lower() == "y":
-            add_autor()
-        return
-
-
 def add_editora(editora):
     editora = editora.strip()
     if len(editora) <= 20:
@@ -76,40 +67,17 @@ def newauth():
     return auth
 
 
-def con_entrada():
-    A = input("Listar livros por: " + "(1)titulo" + "(2)autor" + "(3)ano" +
-              "(4)editora" + "(5)listar todos")
-
-    if A.isnumeric() is false or len(A) != 1:
-        print("Digite um valor valido.")
-        con_entrada()
-    elif A == 1:
-        con_titulo()
-
-    elif A == 2:
-        con_autor()
-
-    elif A == 3:
-        con_ano()
-
-    elif A == 4:
-        con_editora()
-    elif A == 5:
-        con_todos()
-
-    else:
-        print("Digite um valor valido.")
-        con_entrada
-
+def add_entrada():
+    A = input("Digite o ISBN do livro: ")
     isbn = add_isbn(A)
 
     B = input("Digite o titulo do livro: ")
     titulo = add_titulo(B)
 
     C = input("Digite o autor: ")
-    auth_p = add_autor(C.strip())
-    auth_s = newauth()
-    autores = "\"" + auth_p + auth_s + "\""
+    autor = add_autor(C.strip())
+    #    auth_ph_s = newauth()
+    #    autores = "\"" + auth_p + auth_s + "\""
 
     D = input("Digite a Editora: ")
     editora = add_editora(D)
@@ -117,23 +85,18 @@ def con_entrada():
     E = input("Digite o ano do livro: ")
     ano = add_ano(E)
 
-    bib = open('biblioteca.csv', 'r')
-    bib_col = csv.reader(bib)
-    for col in bib_col:
-        last_cod = col[0].strip("'")
-    cod = 1 + int(last_cod)
+    F = input("Digite a categoria do livro")
+    categoria = F
 
-    bib.close
+    G = datetime.datetime.now()
+    data = G.strftime("%d-%m-%Y")
 
-    entrada_livro = ",".join([str(cod), isbn, titulo, autores, ano,
-                              editora]).split(',')
-    entrada_livro = str(entrada_livro).strip("[]")
-    entrada_livro = entrada_livro.replace("\"", "")
-    print(entrada_livro)
+    sql_insert = """INSERT INTO livros VALUES(NULL, {}, \'{}\', \'{}\', {}, \'{}\', \'{}\', NULL, NULL, \'{}\');""".format(
+        isbn, titulo, autor, ano, editora, categoria, data)
 
-    bib = open('biblioteca.csv', 'a')
-    bib.write("\n" + entrada_livro)
-    bib.close()
+    print(sql_insert)
+
+    crud.cruder(sql_insert)
 
 
 add_entrada()

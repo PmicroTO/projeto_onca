@@ -16,7 +16,8 @@ create table usuarios (
 	cep integer not null,
 	bairro text(255) not null,
 	rua text(255) not null,
-	casa text(10) not null
+	casa text(10) not null,
+	genero text(1)
 );
 -- criacao da tabela para o modulo livros
 create table livros (
