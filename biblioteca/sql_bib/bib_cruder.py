@@ -1,10 +1,14 @@
 def cruder(sql_command):
     import sqlite3
     connection = sqlite3.connect('./sql_bib/biblioteca.db')
-    crsr = connection.cursor()
+    b_cursor = connection.cursor()
 
-    crsr.execute(sql_command)
+    b_cursor.execute(sql_command)
+
+    table = b_cursor.fetchall()
 
     connection.commit()
 
     connection.close()
+
+    return table

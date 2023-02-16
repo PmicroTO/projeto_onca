@@ -85,18 +85,23 @@ def add_entrada():
     E = input("Digite o ano do livro: ")
     ano = add_ano(E)
 
-    F = input("Digite a categoria do livro")
+    F = input("Digite a categoria do livro: ")
     categoria = F
 
     G = datetime.datetime.now()
     data = G.strftime("%d-%m-%Y")
 
-    sql_insert = """INSERT INTO livros VALUES(NULL, {}, \'{}\', \'{}\', {}, \'{}\', \'{}\', NULL, NULL, \'{}\');""".format(
-        isbn, titulo, autor, ano, editora, categoria, data)
+    if all([A, B, C, D, E, F, G]) is True:
 
-    print(sql_insert)
+        sql_insert = """INSERT INTO livros VALUES(NULL, {}, \'{}\', \'{}\', {}, \'{}\', \'{}\', NULL, NULL, \'{}\');""".format(
+            isbn, titulo, autor, ano, editora, categoria, data)
 
-    crud.cruder(sql_insert)
+        print(sql_insert)
+
+        crud.cruder(sql_insert)
+    else:
+        print("\nPor favor, preencha todos os dados\n")
+        add_entrada()
 
 
 add_entrada()
