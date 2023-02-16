@@ -9,4 +9,7 @@ def con_nome():
         string)
     resultado = crud.cruder(sql_command)
     tuplas = print(*resultado, sep="\n")
-    print(tuplas)
+    if tuplas is not None:
+        print(tuplas)
+    else:
+        print("Nenhum resultado encontrado.")

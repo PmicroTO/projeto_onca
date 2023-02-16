@@ -6,16 +6,17 @@ import biblioteca.livros.liv_rem as rm
 
 def liv_menu():
     opcao = input(
-        "Digite sua opcao: [1]adicionar, [2]alterar, [3]consultar, [4]remover": )
+        "Digite sua opcao: [1]adicionar\n [2]alterar\n [3]consultar\n [4]remover"
+    )
     opcao = int(opcao)
     if opcao == 1:
         ad.add_entrada()
     elif opcao == 2:
         al.liv_alterar()
     elif opcao == 3:
-        co.con_nome
+        co.con_nome()
     elif opcao == 4:
-        rm.liv_apagar
+        rm.liv_apagar()
     else:
         print("Por favor, digite uma alternativa valida...")
         liv_menu()
