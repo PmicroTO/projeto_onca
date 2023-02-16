@@ -1,46 +1,31 @@
-usar o count pra validar endereco de emais, numero de '@'
-https://regexr.com/3e48o
+Links mais importantes que usei até agora
 
-usar format pra adicionar nas listas algo mais complexo como o nome de inumeros autores ou o endereco
-for character in string - Iterates over each character in the string
+Minimal Structure:
+https://python-packaging.readthedocs.io/en/latest/minimal.html
 
-string.split(delimiter) 
-returns a list of substrings that were separated by whitespace or a delimiter
-usar para retornar o primeiro nome do usuario numa mensagem de boas vindas
+Modulos:
+https://docs.python.org/3/tutorial/modules.html
+https://youtu.be/4SqzDJNlRKE
 
-Formatted string literals (Optional)
->>> item = "Purple Cup"
+Melhor curso rapido pra revisar as aulas:
+https://www.coursera.org/learn/python-crash-course
+Site tosco mas muito bom:
+https://www.w3schools.com/python/python_regex.asp
 
->>> amount = 5
-
->>> price = amount * 3.25
-
->>> print(f'Item: {item} - Amount: {amount} - Price: {price:.2f}')
-
-Item: Purple Cup - Amount: 5 - Price: 16.25
+Tudo necessario pra usar o modulo sqlite, nao tem como fazer nada so usando listas, tuplas e dicionarios. Eles nao servem pra isso no final das contas. E nem o csv.
+https://www.geeksforgeeks.org/sql-using-python/
+https://docs.python.org/3/library/sqlite3.html
 
 
-def nametag(first_name, last_name):
-    return("{} {:.1s}.".format(first_name, last_name))
-
-
-print(nametag("Jane", "Smith")) 
-# Should display "Jane S." 
-print(nametag("Francesco", "Rinaldi")) 
-# Should display "Francesco R." 
-print(nametag("Jean-Luc", "Grand-Pierre")) 
-# Should display "Jean-Luc G." 
-
-fazer backup dos arquivos antes de salvar
-
-testar.json
-
-usar o modulo csv apenas para quando precisar pegar uma coluna, mas fazer o resto em lista
+MUITO IMPORTANTE
+https://www.c-sharpcorner.com/article/how-to-validate-an-email-address-in-python/
 
 
 https://www.sqlitetutorial.net/sqlite-check-constraint/
 
 https://www.tutlane.com/tutorial/sqlite/sqlite-default-constraint
 
+
+O link mais importante a respeito de como manipular a lista de tuplas do sql
+Method 3: Use List Comprehension to Search a List of Tuples
 https://blog.finxter.com/how-to-access-elements-from-a-list-of-tuples/
-o link mais importante a respeito de como manipular a lista de tuplas do sql
