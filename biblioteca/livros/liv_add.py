@@ -54,17 +54,15 @@ def add_ano(ano):
         ano = input("Dgitite o ano no formato correto e.g. 2001: ")
 
 
-def newauth():
-    C2 = input(
-        "Digite 'S' para Adicionar um novo autor, 'C' pra continuar.").lower()
-    auth = ""
-    while C2 == "s" and C2 != "c":
-        C = input("Digite o proximo autor(C para continuar): ")
-        if C.lower() == "c":
-            break
-        auth += "; " + add_autor(C.strip())
-        print(auth)
-    return auth
+def add_cat(categoria):
+    categoria = categoria.strip()
+    if len(categoria) <= 20:
+        return categoria
+    else:
+        categoria = input(
+            "O nome da categoria excede o numero maximo de caracteres(20), digite novamente: "
+        )
+        add_cat(categoria)
 
 
 def add_entrada():
@@ -75,9 +73,7 @@ def add_entrada():
     titulo = add_titulo(B)
 
     C = input("Digite o autor: ")
-    autor = add_autor(C.strip())
-    #    auth_ph_s = newauth()
-    #    autores = "\"" + auth_p + auth_s + "\""
+    autor = add_autor(C)
 
     D = input("Digite a Editora: ")
     editora = add_editora(D)
@@ -86,12 +82,12 @@ def add_entrada():
     ano = add_ano(E)
 
     F = input("Digite a categoria do livro: ")
-    categoria = F
+    categoria = add_cat(F)
 
     G = datetime.datetime.now()
     data = G.strftime("%d-%m-%Y")
 
-    if all([A, B, C, D, E, F, G]) is True:
+    if all([A, B, C, D, E, F, G]) is True and int(isbn) > 0:
 
         sql_insert = """INSERT INTO livros VALUES(NULL, {}, \'{}\', \'{}\', {}, \'{}\', \'{}\', NULL, NULL, \'{}\');""".format(
             isbn, titulo, autor, ano, editora, categoria, data)

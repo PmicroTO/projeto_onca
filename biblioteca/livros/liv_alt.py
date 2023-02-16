@@ -1,5 +1,6 @@
 import biblioteca.sql_bib.bib_cruder as crud
 import biblioteca.livros.liv_con as con
+import biblioteca.livros.liv_add as add
 
 
 def liv_alterar():
@@ -12,18 +13,23 @@ def liv_alterar():
     if coluna == 1:
         alterada = "titulo"
         valor_novo = input("Digite o valor novo para")
+        add.add_titulo()
     elif coluna == 2:
         alterada = "autores"
         valor_novo = input("Digite o valor novo para")
+        add.add_autor()
     elif coluna == 3:
         alterada = "ano"
         valor_novo = input("Digite o valor novo para")
+        add.add_ano()
     elif coluna == 4:
         alterada = "editora"
         valor_novo = input("Digite o valor novo para")
+        add.add_editora()
     elif coluna == 5:
         alterada = "categoria"
         valor_novo = input("Digite o valor novo para")
+        add.add_cat()
     elif coluna == 6:
         alterada = "isbn"
         valor_novo = input("Digite o valor novo para")
