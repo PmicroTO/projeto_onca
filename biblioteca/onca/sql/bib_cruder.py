@@ -1,7 +1,6 @@
 def cruder(sql_command):
-    import os
     import sqlite3
-    connection = sqlite3.connect(os.path.relpath("./sql_bib/biblioteca.db"))
+    connection = sqlite3.connect('.database.db')
     b_cursor = connection.cursor()
 
     b_cursor.execute(sql_command)
