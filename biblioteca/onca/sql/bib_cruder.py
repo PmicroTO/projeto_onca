@@ -1,6 +1,11 @@
 def cruder(sql_command):
+    import os
     import sqlite3
-    connection = sqlite3.connect('.database.db')
+
+    dbp = os.path.dirname(os.path.abspath(__file__))
+    dbf = os.path.join(dbp, 'biblioteca.db')
+
+    connection = sqlite3.connect(dbf)
     b_cursor = connection.cursor()
 
     b_cursor.execute(sql_command)
@@ -10,5 +15,4 @@ def cruder(sql_command):
     connection.commit()
 
     connection.close()
-
     return table

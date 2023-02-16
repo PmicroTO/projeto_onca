@@ -103,27 +103,25 @@ def add_entrada():
 # FUNCAO DE CONSULTA
 
 
-def con_nome(funcionario_ou_cliente):
-    usuario = funcionario_ou_cliente
+def con_nome(usuario):
     termo_pesquisa = input(
-        "Digite o nome do livro desejado ou ENTER para exibir todos: ")
-    string = termo_pesquisa
-    sql_command = """SELECT * FROM livros WHERE titulo like '%{}%';""".format(
-        string)
+        "Digite o titulo, autor, categoria, editora, ano ou ENTER para exibir todos: "
+    )
+    sql_command = """SELECT * FROM livros WHERE titulo like '%{t}%' or categoria like '%{t}%' or titulo like '%{t}%' or autores like '%{t}%' or ano like '%{t}%' or editora like '%{t}%' ;""".format(
+        t=termo_pesquisa)
     resultado = cruder(sql_command)
     if resultado is not None:
         if usuario == "cliente":
-            tabela = [
-                (x[2], x[3], x[4], x[5])
-                for x in resultado
-                if x[5] == "Grupo A" and x[4] == "string2"
-                # fazer dessa maneira, coloca condicoes de busca e substituir nas strings, mas caso as strings nao sejam nada
-                # colocar um wildcard nela
-            ]
+            tabela = resultado
+            print(*tabela, sep="\n")
         elif usuario == "funcionario":
             tabela = resultado
-
-        print(*tabela, sep="\n")
+            print(
+                '_' * 79,
+                'COD|ISBN|TITLO|AUTOR(ES)|ANO|EDITORA|CATEGORIA|EMP_USU|EM_DATA|DATA_ADICIONADO',
+                '_' * 79,
+                *tabela,
+                sep="\n")
     else:
         print("Nenhum resultado encontrado.")
 
@@ -174,7 +172,7 @@ def liv_alterar():
 
 
 def liv_apagar():
-    con_nome()
+    con_nome("cliente")
     livro = input("\n Digite o codigo do livro a ser removido: ")
     sql_command = """DELETE FROM livros WHERE cod_liv={};""".format(livro)
     cruder(sql_command)
