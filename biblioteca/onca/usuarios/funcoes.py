@@ -7,6 +7,7 @@ from ..sql.bib_cruder import cruder
 def add_user(x):
     x = str(x)
     x = x.lower()
+    x = x.strip()
     if len(x) <= 8:
         sql_command = """SELECT * FROM usuarios WHERE username='{}';""".format(
             x)
@@ -26,6 +27,7 @@ def add_user(x):
 
 def add_senha(x):
     x = str(x)
+    x = x.strip()
     if len(x) <= 24:
         return x
     else:
@@ -36,6 +38,7 @@ def add_senha(x):
 
 def add_email(x):
     x = str(x)
+    x = x.strip()
     regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
     if len(x) <= 55 and re.search(regex, x) is not None:
         sql_command = """SELECT * FROM usuarios WHERE email='{}';""".format(x)
@@ -52,6 +55,7 @@ def add_email(x):
 
 def add_nome(x):
     x = str(x)
+    x = x.strip()
     if len(x) <= 55:
         return x
     else:
@@ -64,6 +68,7 @@ def add_cpf(x):
     x = str(x)
     x = x.replace(".", "")
     x = x.replace("-", "")
+    x = x.strip()
     if x.isnumeric() is True and len(x) == 11:
         return x
     else:
@@ -77,6 +82,7 @@ def add_telefone(x):
     x = x.replace("(", "")
     x = x.replace(")", "")
     x = x.replace("-", "")
+    x = x.strip()
     if x.isnumeric() is True and len(x) == 11:
         return x
     else:
@@ -88,10 +94,11 @@ def add_cep(x):
     x = str(x)
     x = x.replace(".", "")
     x = x.replace("-", "")
+    x = x.strip()
     if x.isnumeric() is True and len(x) == 8:
         return x
     else:
-        x = input(" Por favor, insira um cep  valido, apenas digitos: ").strip()
+        x = input(" Por favor, insira um cep  valido:  ")
         add_cep(x)
 
 
@@ -99,7 +106,7 @@ def add_bairro(x):
     if len(str(x)) <= 255:
         return x
     else:
-        x = input("Por favor abrevie o nome de seu Bairro: ").strip
+        x = input("Por favor abrevie o nome de seu Bairro: ")
         add_bairro(x)
 
 
@@ -107,7 +114,7 @@ def add_rua(x):
     if len(str(x)) <= 255:
         return x
     else:
-        x = input(" Por favor, abrevie o nome de sua Rua: ").strip
+        x = input(" Por favor, abrevie o nome de sua Rua: ")
         add_rua(x)
 
 
@@ -125,23 +132,22 @@ def add_genero(x):
         return x
     else:
         print("Por favor digite um valor valido.")
-        x = input(" Por favor digite um valor valido. Genero\n [M]\n [F]\n [O]"
-                 ).lower()
+        x = input(" Por favor digite um valor valido. Genero\n [M]\n [F]\n [O]")
         add_genero(x)
 
 
 def add_cadastro():
-    a = add_user(input("Digite o nome do seu novo usuario:\n").strip())
-    b = add_senha(input("Digite sua nova senha:\n").strip())
-    c = add_email(input("Digite o seu email:\n").strip())
-    d = add_nome(input("Digite seu Nome:\n").strip())
-    e = add_cpf(input("CPF, apenas digitos:\n").strip())
-    f = add_telefone(input("Celular, apenas numeros, com ddd:\n").strip())
-    g = add_cep(input("CEP:\n").strip())
-    h = add_bairro(input("Bairro:\n").strip())
-    i = add_rua(input("Rua:\n").strip())
-    j = add_casa(input("Casa:\n").strip())
-    k = add_genero(input(" Genero:\n\n [M]\n [F]\n [O]\n").strip())
+    a = add_user(input("Digite o nome do seu novo usuario:\n"))
+    b = add_senha(input("Digite sua nova senha:\n"))
+    c = add_email(input("Digite o seu email:\n"))
+    d = add_nome(input("Digite seu Nome:\n"))
+    e = add_cpf(input("CPF, apenas digitos:\n"))
+    f = add_telefone(input("Celular, apenas numeros, com ddd:\n"))
+    g = add_cep(input("CEP:\n"))
+    h = add_bairro(input("Bairro:\n"))
+    i = add_rua(input("Rua:\n"))
+    j = add_casa(input("Casa:\n"))
+    k = add_genero(input(" Genero:\n\n [M]\n [F]\n [O]\n"))
 
     sql_insert = """INSERT INTO usuarios VALUES(NULL, '{}', '{}', '{}', '{}', {}, {}, {}, '{}', '{}', '{}', '{}', NULL);""".format(
         a, b, c, d, e, f, g, h, i, j, k)
