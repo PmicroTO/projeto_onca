@@ -11,7 +11,13 @@ def con_nome(funcionario_ou_cliente):
     resultado = crud.cruder(sql_command)
     if resultado is not None:
         if usuario == "cliente":
-            tabela = [(x[2], x[3], x[4], x[5]) for x in resultado]
+            tabela = [
+                (x[2], x[3], x[4], x[5])
+                for x in resultado
+                if x[5] == "Grupo A" and x[4] == "string2"
+                # fazer dessa maneira, coloca condicoes de busca e substituir nas strings, mas caso as strings nao sejam nada
+                # colocar um wildcard nela
+            ]
         elif usuario == "funcionario":
             tabela = resultado
 

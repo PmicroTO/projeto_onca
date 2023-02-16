@@ -1,5 +1,5 @@
 import datetime
-import biblioteca.sql_bib.bib_cruder as crud
+from biblioteca.sql_bib.bib_cruder import cruder as crud
 
 
 def add_isbn(isbn):
@@ -94,7 +94,7 @@ def add_entrada():
 
         print(sql_insert)
 
-        crud.cruder(sql_insert)
+        crud(sql_insert)
     else:
         print("\nPor favor, preencha todos os dados\n")
         add_entrada()
