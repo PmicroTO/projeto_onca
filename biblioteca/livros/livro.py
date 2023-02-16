@@ -6,12 +6,12 @@ import biblioteca.livros.liv_rem as rm
 
 def liv_menu():
     opcao = input(
-        "Digite sua opcao: [1]adicionar, [2]alterar, [3]consultar, [4]remover")
+        "Digite sua opcao: [1]adicionar, [2]alterar, [3]consultar, [4]remover": )
     opcao = int(opcao)
     if opcao == 1:
         ad.add_entrada()
     elif opcao == 2:
-        return
+        al.liv_alterar()
     elif opcao == 3:
         co.con_nome
     elif opcao == 4:
