@@ -12,7 +12,7 @@ create table usuarios (
 	email text(55) not null,
 	nome text(55) not null,
 	cpf integer(11) not null,
-	telefone integer(14) not null,
+	telefone integer(11) not null,
 	cep integer(8) not null,
 	bairro text(255) not null,
 	rua text(255) not null,
@@ -20,6 +20,7 @@ create table usuarios (
 	genero text(1),
 	funcionario integer(1)
 );
+
 -- criacao da tabela para o modulo livros
 create table livros (
 	cod_liv integer primary key autoincrement,
@@ -29,8 +30,9 @@ create table livros (
 	ano integer(4) not null,
 	editora text(50) not null,
 	categoria text(50) not null,
-	emprestimo_usuario integer(),
+	emprestimo_usuario integer(1),
 	emprestimo_data text(10),
 	data_add text(10) not null,
 	foreign key (emprestimo_usuario) references usuarios(cod_usu)
 );
+
