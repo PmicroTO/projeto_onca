@@ -102,6 +102,3 @@ def add_entrada():
     else:
         print("\nPor favor, preencha todos os dados\n")
         add_entrada()
-
-
-add_entrada()
